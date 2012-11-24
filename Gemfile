@@ -38,6 +38,8 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'paperclip'
 gem 'aws-sdk'
