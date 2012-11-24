@@ -1,5 +1,5 @@
 <button class="btn">YES</button>
 <button class="btn">NO</button>
 <button class="btn">Not a pet</button>
-
+<span><%= @pet.votes_for %></span> <span><%= @pet.votes_against %></span>
 <%= image_tag @pet.photo.url(:medium) %>

@@ -1,4 +1,6 @@
 WouldYouPetThis::Application.routes.draw do
+  devise_for :users
+
   root :to => "pages#home"
 
   match 'vote' => 'pages#vote'
@@ -7,7 +9,7 @@ WouldYouPetThis::Application.routes.draw do
 
   resources :pets do
     member do
-      post 'vote'
+      get 'vote'
     end
   end
 

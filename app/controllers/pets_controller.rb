@@ -1,4 +1,6 @@
 class PetsController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /pets
   # GET /pets.json
   def index
@@ -12,8 +14,15 @@ class PetsController < ApplicationController
 
   def vote
     # TODO: Store current vote?
+    @pet = Pet.find(params[:id])
+
+    current_user.vote_for(@pet)
 
     @pet = Pet.order("RANDOM()").first()
+
+    respond_to do |format|
+      format.json { render json: @pet }
+    end
   end
 
   # GET /pets/1
