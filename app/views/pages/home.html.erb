@@ -1,0 +1,10 @@
+<h1>Would You Pet This?</h1>
+<p>Welcome to the official home of the most pettable pets ever!</p>
+<div>
+<h2>Top 10</h2>
+<ul>
+<% @top.each do |pet| %>
+  <li><%= image_tag pet.photo.url(:thumb) %></li>
+<% end %>
+</ul>
+</div>

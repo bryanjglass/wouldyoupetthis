@@ -10,6 +10,12 @@ class PetsController < ApplicationController
     end
   end
 
+  def vote
+    # TODO: Store current vote?
+
+    @pet = Pet.order("RANDOM()").first()
+  end
+
   # GET /pets/1
   # GET /pets/1.json
   def show

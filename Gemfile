@@ -39,3 +39,5 @@ gem 'jquery-rails'
 
 gem 'paperclip'
 gem 'aws-sdk'
+
+gem 'thumbs_up'

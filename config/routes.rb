@@ -1,5 +1,15 @@
 WouldYouPetThis::Application.routes.draw do
-  resources :pets
+  root :to => "pages#home"
+
+  match 'vote' => 'pages#vote'
+
+#  get "pages/home"
+
+  resources :pets do
+    member do
+      post 'vote'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
