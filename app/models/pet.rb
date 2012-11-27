@@ -6,4 +6,16 @@ class Pet < ActiveRecord::Base
       :medium => "640x480>",
       :large => "960x720>"
     }
+
+  def photo_thumb_url
+    photo.url(:thumb)
+  end
+
+  def photo_medium_url
+    photo.url(:medium)
+  end
+
+  def photo_large_url
+    photo.url(:large)
+  end
 end

@@ -12,16 +12,25 @@ class PetsController < ApplicationController
     end
   end
 
-  def vote
-    # TODO: Store current vote?
+  def vote_for
+    @pet = Pet.find(params[:id])
+    
+    current_user.vote_exclusively_for(@pet) #if params[:pettable] == "yes"
+    show_next()
+  end
+
+  def vote_against
     @pet = Pet.find(params[:id])
 
-    current_user.vote_for(@pet)
+    current_user.vote_exclusively_against(@pet)
+    show_next()
+  end
 
+  def show_next
     @pet = Pet.order("RANDOM()").first()
 
     respond_to do |format|
-      format.json { render json: @pet }
+      format.json { render :json => @pet.to_json(:methods => [:photo_thumb_url, :photo_medium_url, :photo_large_url]) }
     end
   end
 
@@ -32,7 +41,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @pet }
+      format.json { render :json => @pet.to_json(:methods => [:photo_thumb_url, :photo_medium_url, :photo_large_url]) }
     end
   end
 

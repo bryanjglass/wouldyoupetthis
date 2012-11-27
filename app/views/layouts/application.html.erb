@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="container">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <a class="brand" href="#">Would You Pet This?</a>
+      <ul class="nav">
+        <li><a href="about">About</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

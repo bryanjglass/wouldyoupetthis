@@ -8,9 +8,12 @@ WouldYouPetThis::Application.routes.draw do
 
   resources :pets do
     member do
-      get 'vote'
+      get 'vote_for'
+      get 'vote_against'
     end
   end
+
+#  match 'pets/:id/vote_for' => 'pets#vote'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

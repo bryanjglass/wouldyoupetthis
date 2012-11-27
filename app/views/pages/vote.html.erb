@@ -1,5 +1,23 @@
-<button class="btn">YES</button>
-<button class="btn">NO</button>
-<button class="btn">Not a pet</button>
-<span><%= @pet.votes_for %></span> <span><%= @pet.votes_against %></span>
-<%= image_tag @pet.photo.url(:medium) %>
+<script>
+  var currentPet = <%=@pet.to_json.html_safe %>;
+</script>
+
+<div class="row">
+  <div class="offset3 span3">
+    <button id="vote-yes" class="btn btn-success"><i class="icon-thumbs-up"></i> YES</button>
+    <button id="vote-no" class="btn btn-danger"><i class="icon-thumbs-down"></i> NO</button>
+  </div>
+  <div class="span3" style="text-align: right;">
+    <button id="vote-report" class="btn"><i class="icon-exclamation-sign"></i> Not a pet</button>
+  </div>
+</div>
+<div class="row">
+  <div class="offset3 span6">
+    <span><%= @pet.votes_for %></span> <span><%= @pet.votes_against %></span>
+  </div>
+</div>
+<div class="row">
+  <div class="offset3 span6" style="text-align: center;">
+    <%= image_tag @pet.photo.url(:medium) %>
+  </div>
+</div>
