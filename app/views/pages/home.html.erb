@@ -1,11 +1,17 @@
 <h1>Would You Pet This?</h1>
 <p>Welcome to the official home of the most pettable pets ever!</p>
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<div>
 <h2>Top 10</h2>
-<ul>
+<div class="row">
+<div class="span12">
+<ul class="thumbnails">
 <% @top.each do |pet| %>
-  <li><%= image_tag pet.photo.url(:thumb) %></li>
+  <li class="span2" style="height: 140px;">
+    <%= link_to(pet, :class=>"thumbnail") do %>
+      <%= image_tag(pet.photo.url(:thumb), :class=>"img-rounded") %>
+    <% end %>
+  </li>
 <% end %>
 </ul>
+</div>
 </div>
