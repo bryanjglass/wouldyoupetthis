@@ -50,3 +50,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'thumbs_up'
+
+gem 'acts-as-taggable-on'
+
+

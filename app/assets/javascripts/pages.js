@@ -30,4 +30,11 @@ $('#vote-report').click(function(event) {
   });
 });
 
+$('#skip').click(function(event) {
+  $.ajax({
+    url: '/pets/show_next',
+    success: onVoteSuccess
+  });
+});
+
 });

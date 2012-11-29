@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-<%= image_tag @pet.photo.url(:thumb) %>
-
+<%= render @pet %>
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>

@@ -1,10 +1,15 @@
 WouldYouPetThis::Application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  
   root :to => "pages#home"
-
+ 
+  match 'most' => 'pages#most' 
+  match 'about' => 'pages#about'
   match 'vote' => 'pages#vote'
-
+  
 #  get "pages/home"
+
+  match 'pets/show_next' => 'pets#show_next'
 
   resources :pets do
     member do

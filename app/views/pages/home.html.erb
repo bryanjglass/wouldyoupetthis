@@ -1,17 +1,16 @@
+<div class="well">
 <h1>Would You Pet This?</h1>
 <p>Welcome to the official home of the most pettable pets ever!</p>
+<a href="/vote" class="btn btn-large btn-primary">Let's start petting! <i class="icon-arrow-right"></i></a>
+
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<h2>Top 10</h2>
-<div class="row">
-<div class="span12">
-<ul class="thumbnails">
-<% @top.each do |pet| %>
-  <li class="span2" style="height: 140px;">
-    <%= link_to(pet, :class=>"thumbnail") do %>
-      <%= image_tag(pet.photo.url(:thumb), :class=>"img-rounded") %>
-    <% end %>
-  </li>
+</div>
+
+<h2>Most Pettable</h2>
+<%= render :partial=>"top", :object=>@top_overall %>
+
+<h2>Most Pettable By Tag</h2>
+<% @top_by_tag.each do |tag| %>
+  <h3>Most Pettable <%= tag[:name].pluralize.titleize %></h3>
+  <%= render :partial=>"top", :object=>tag[:pets] %>
 <% end %>
-</ul>
-</div>
-</div>

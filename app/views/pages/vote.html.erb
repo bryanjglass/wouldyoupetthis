@@ -1,8 +1,8 @@
 <script>
   var currentPet = <%=@pet.to_json.html_safe %>;
 </script>
-
 <div class="row">
+<% if user_signed_in? %>
   <div class="offset3 span3">
     <button id="vote-yes" class="btn btn-success"><i class="icon-thumbs-up"></i> YES</button>
     <button id="vote-no" class="btn btn-danger"><i class="icon-thumbs-down"></i> NO</button>
@@ -10,6 +10,14 @@
   <div class="span3" style="text-align: right;">
     <button id="vote-report" class="btn"><i class="icon-exclamation-sign"></i> Not a pet</button>
   </div>
+<% else %>
+  <div class="offset3 span3">
+    <span>Log in to vote!</span>
+  </div>
+  <div class="span3" style="text-align: right;">
+    <button id="skip" class="btn">Next pet</button>
+  </div>
+<% end %>
 </div>
 <div class="row">
   <div class="offset3 span6">

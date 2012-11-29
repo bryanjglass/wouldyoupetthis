@@ -10,10 +10,21 @@
 <div class="container">
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <a class="brand" href="#">Would You Pet This?</a>
+      <a class="brand" href="/">Would You Pet This?</a>
       <ul class="nav">
-        <li><a href="about">About</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/most">Most Pettable</a></li>
+        <li><a href="/about">About</a><li>
       </ul>
+      <ul class="nav pull-right">
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+          <% else %>
+            <%= link_to("Login", new_user_session_path) %>
+          <% end %>
+        </li>
+      </p>
     </div>
   </div>
 </div>

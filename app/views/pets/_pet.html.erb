@@ -1,0 +1,12 @@
+<div class="row">
+  <%= image_tag @pet.photo.url(:medium), :class => "img-rounded" %>
+</div>
+<div class="row">
+  <div class="span6">
+    <span>Tagged With: 
+      <% @pet.tags.each do |tag|  %>
+        <span class="label"><%= tag.name %></span> 
+      <% end %>
+    </span>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show, :show_next]
 
   # GET /pets
   # GET /pets.json
@@ -49,7 +49,7 @@ class PetsController < ApplicationController
   # GET /pets/new.json
   def new
     @pet = Pet.new
-
+    @tags = Pet.tag_counts.order("count DESC")
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @pet }

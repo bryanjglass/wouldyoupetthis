@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="span12">
+    <ul class="thumbnails">
+      <% top.each do |pet| %>
+        <li class="span2" style="height: 140px;">
+          <%= link_to(pet, :class=>"thumbnail") do %>
+            <%= image_tag(pet.photo.url(:thumb), :class=>"img-rounded") %>
+          <% end %>
+          <span><%= number_to_percentage(pet.votes_for.to_f / pet.votes_count*100, :precision=>0) %> <i class="icon-thumbs-up"></i>, <%= pet.votes_count %> votes</span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
